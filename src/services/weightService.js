@@ -1,13 +1,4 @@
-import axios from "axios";
-
-const apiClient = axios.create({
-  baseURL: "localhost:8000/api/",
-  withCredentials: false,
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-});
+import apiClient from "./axiosManage";
 
 export default {
   getWeights(perPage, page) {
