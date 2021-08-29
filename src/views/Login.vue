@@ -1,59 +1,50 @@
 <template>
-  <v-card class="mx-auto my-12" max-width="374">
-    <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
+  <Form @submit="submitFrom" :validation-schema="schema">
+    <Field name="email" type="email" />
+    <ErrorMessage name="email" />
 
-    <v-card-title>Login To Weight Tracker</v-card-title>
-    <form @submit.prevent="submitFrom">
-      <v-card-text>
-        <v-row align="center" class="mx-0">
-          <div class="grey--text ms-4">
-            Email
-            <input type="text" class="form" v-model="email" />
-          </div>
-        </v-row>
-        <br />
-        <br />
-        <v-row align="center" class="mx-0">
-          <div class="grey--text ms-4">
-            Password
-            <input type="text" v-model="password" />
-          </div>
-        </v-row>
+    <Field name="password" type="password" />
+    <ErrorMessage name="password" />
 
-        <div></div>
-      </v-card-text>
-
-      <v-card-actions>
-        <v-btn color="deep-purple lighten-2" class="md-6" text type="submit">
-          Login
-        </v-btn>
-      </v-card-actions>
-    </form>
-  </v-card>
+    <button>Submit</button>
+  </Form>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import { Field, Form, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
 
 export default {
   name: "Login",
   data: () => {
+    const schema = yup.object({
+      email: yup
+        .string()
+        .required()
+        .email(),
+      password: yup
+        .string()
+        .required()
+        .min(8),
+    });
+
     return {
-      email: null,
-      password: null,
+      schema,
     };
+  },
+  components: {
+    Field,
+    Form,
+    ErrorMessage,
   },
   methods: {
     ...mapActions("auth", ["login"]),
-
-    submitFrom() {
-      console.log("submit form");
+    submitFrom(values) {
+      console.log("submit form", values);
       this.login({
-        email: this.email,
-        password: this.password,
+        email: values.email,
+        password: values.password,
       });
     },
   },
