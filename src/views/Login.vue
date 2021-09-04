@@ -52,7 +52,7 @@ export default {
     GetToken() {
       const messaging = getMessaging();
       console.log('messaging',messaging);
-      getToken(messaging, { vapidKey: "AIzaSyCLjNFTPgV_pC1acsakn12odDVdl34UupA" })
+      getToken(messaging, { vapidKey: "BNgEpaAncyQVxFgg6SqCB7Ze1FWUsNeTiJGxWCf-77cU2fLPHRbvImcW7l88EiZnUSZw9pMk46P8LgJpa23KhPQ" })
         .then((currentToken) => {
           if (currentToken) {
             // Send the token to your server and update the UI if necessary
