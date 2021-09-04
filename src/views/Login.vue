@@ -51,6 +51,7 @@ export default {
     },
     GetToken() {
       const messaging = getMessaging();
+      console.log('messaging',messaging);
       getToken(messaging, { vapidKey: "AIzaSyCLjNFTPgV_pC1acsakn12odDVdl34UupA" })
         .then((currentToken) => {
           if (currentToken) {
