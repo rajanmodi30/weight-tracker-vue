@@ -9,6 +9,7 @@
     <button>Submit</button>
   </Form>
   <button @click="GetToken">get Token</button>
+  "ok"
 </template>
 
 <script>
