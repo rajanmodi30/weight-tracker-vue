@@ -18,4 +18,4 @@ const app = initializeApp(firebaseConfig);
 
 const messaging = getMessaging(app);
 
-export default messaging;
+export default { messaging };
