@@ -6,13 +6,13 @@ importScripts('https://www.gstatic.com/firebasejs/8.4.3/firebase-messaging.js');
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.VUE_APP_API_KEY,
-  authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-  projectId: process.env.VUE_APP_PROJECT_ID,
-  storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
-  appId: process.env.VUE_APP_APP_ID,
-  measurementId: process.env.VUE_APP_MEASUREMENT_Id,
-};
+    apiKey: "AIzaSyCLjNFTPgV_pC1acsakn12odDVdl34UupA",
+    authDomain: "weight-tracker-62503.firebaseapp.com",
+    projectId: "weight-tracker-62503",
+    storageBucket: "weight-tracker-62503.appspot.com",
+    messagingSenderId: "719588529069",
+    appId: "1:719588529069:web:8798fcea60a4f889bfc724",
+    measurementId: "G-W9HZV4PDQE",
+  };
 
 const app = firebase.initializeApp(firebaseConfig)
