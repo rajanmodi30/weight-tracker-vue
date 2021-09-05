@@ -18,26 +18,4 @@ const app = initializeApp(firebaseConfig);
 
 const messaging = getMessaging(app);
 
-getToken(messaging, {
-  vapidKey:
-    "BNgEpaAncyQVxFgg6SqCB7Ze1FWUsNeTiJGxWCf-77cU2fLPHRbvImcW7l88EiZnUSZw9pMk46P8LgJpa23KhPQ",
-})
-  .then((currentToken) => {
-    if (currentToken) {
-      // Send the token to your server and update the UI if necessary
-      console.log("token", currentToken);
-      // ...
-    } else {
-      // Show permission request UI
-      console.log(
-        "No registration token available. Request permission to generate one."
-      );
-      // ...
-    }
-  })
-  .catch((err) => {
-    console.log("An error occurred while retrieving token. ", err);
-    // ...
-  });
-
 export default { messaging };

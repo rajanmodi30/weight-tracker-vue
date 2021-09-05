@@ -15,7 +15,7 @@
 import { mapActions } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-import { getMessaging } from "firebase/messaging";
+import { getMessaging, getToken } from "firebase/messaging";
 
 export default {
   name: "Login",
@@ -51,13 +51,15 @@ export default {
     },
     GetToken() {
       const messaging = getMessaging();
-      messaging.getToken({ vapidKey: "BNgEpaAncyQVxFgg6SqCB7Ze1FWUsNeTiJGxWCf-77cU2fLPHRbvImcW7l88EiZnUSZw9pMk46P8LgJpa23KhPQ" })
-      // console.log('messaging',messaging);
-      // getToken(messaging, { vapidKey: "BNgEpaAncyQVxFgg6SqCB7Ze1FWUsNeTiJGxWCf-77cU2fLPHRbvImcW7l88EiZnUSZw9pMk46P8LgJpa23KhPQ" })
+      console.log("messaging", messaging);
+      getToken(messaging, {
+        vapidKey:
+          "BNgEpaAncyQVxFgg6SqCB7Ze1FWUsNeTiJGxWCf-77cU2fLPHRbvImcW7l88EiZnUSZw9pMk46P8LgJpa23KhPQ",
+      })
         .then((currentToken) => {
           if (currentToken) {
             // Send the token to your server and update the UI if necessary
-            console.log('token',currentToken);
+            console.log("token", currentToken);
             // ...
           } else {
             // Show permission request UI
